@@ -1,0 +1,18 @@
+<div>
+<p><%= Date.today.strftime("%A, %B %d") %></p>
+<img src="http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"] %>@2x.png" />
+<p><%= @data["weather"].first["main"] %></p>
+<p><%= @data["weather"].first["description"] %></p>
+<p><%= @data["main"]["temp"] %> Fahrenheit</p>
+<%= form_tag("/welcome/index", method: "post") do %>
+  <%= label_tag :longitude %><br>
+  <%= text_field_tag :longitude %>
+  <br>
+  <br>
+  <%= label_tag :latitude %><br>
+  <%= text_field_tag :latitude %>
+  <p>
+    <%= submit_tag("Submit") %>
+  </p>
+<% end %>
+</div>
